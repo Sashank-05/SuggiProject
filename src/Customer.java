@@ -1,22 +1,24 @@
 public class Customer {
-    private String name;
-    private String address;
+  private String name;
+  private String address;
 
-    public Customer(String name, String address) {
-        this.name = name;
-        this.address = address;
-    }
+  // Constructor
+  public Customer(String name, String address) {
+    this.name = name;
+    this.address = address;
+  }
 
-    public String getName() {
-        return name;
-    }
+  // Getters and setters (optional)
+  public String getName() {
+    return name;
+  }
 
-    public String getAddress() {
-        return address;
-    }
+  public String getAddress() {
+    return address;
+  }
 
-    @Override
-    public String toString() {
-        return "Customer [name=" + name + ", address=" + address + "]";
-    }
+  @Override
+  public String toString() {
+    return "Customer{name='" + name + "', address='" + address + "'}";
+  }
 }
