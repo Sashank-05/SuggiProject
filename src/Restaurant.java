@@ -19,4 +19,6 @@ public class Restaurant {
     public String toString() {
         return "Restaurant [name=" + name + ", location=" + location + "]";
     }
+
+
 }
