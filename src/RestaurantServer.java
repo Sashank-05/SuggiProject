@@ -10,7 +10,7 @@ public class RestaurantServer {
   static {
     // Initialize delivery drivers
     for (int i = 0; i < MAX_DELIVERY_DRIVERS; i++) {
-      deliveryDrivers.add(new DeliveryDriver(i + 1));
+      //deliveryDrivers.add(new DeliveryDriver(i + 1));
     }
   }
 
