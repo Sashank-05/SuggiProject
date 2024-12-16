@@ -1,3 +1,5 @@
+package main.java.models;
+
 import java.util.*;
 import java.util.concurrent.PriorityBlockingQueue;
 
@@ -26,7 +28,7 @@ public class OrderManager {
                 if (agent.isAvailable()) {
                     agent.assignOrder();
                     orderHistory.push(order);
-                    System.out.println("Assigned Order " + order.getOrderId() + " to Agent " + agent.getName());
+                    System.out.println("Assigned main.java.models.Order " + order.getOrderId() + " to Agent " + agent.getName());
                     break;
                 }
             }
@@ -35,11 +37,11 @@ public class OrderManager {
 
     public void completeOrder(DeliveryAgent agent) {
         agent.completeOrder();
-        System.out.println("Order completed by " + agent.getName());
+        System.out.println("main.java.models.Order completed by " + agent.getName());
     }
 
     public void printOrderHistory() {
-        System.out.println("Order History: ");
+        System.out.println("main.java.models.Order History: ");
         for (Order order : orderHistory) {
             System.out.println(order);
         }

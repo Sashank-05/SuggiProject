@@ -1,3 +1,5 @@
+package main.java.models;
+
 import java.util.Date;
 
 public class Order {
@@ -37,7 +39,7 @@ public class Order {
 
   @Override
   public String toString() {
-    return "Order [orderId="
+    return "main.java.models.Order [orderId="
         + orderId
         + ", customer="
         + customer.getName()

@@ -1,8 +1,14 @@
+package main.java;
+
+import main.java.models.DeliveryDriver;
+import main.java.models.Message;
+
+
 import java.io.*;
 import java.net.*;
 import java.util.*;
 
-public class RestaurantServer {
+public class RestaurantServer extends Thread {
   private static final int PORT = 6000;
   private static final List<DeliveryDriver> deliveryDrivers = new ArrayList<>();
   private static final int MAX_DELIVERY_DRIVERS = 3; // Example: 3 drivers available
@@ -10,13 +16,13 @@ public class RestaurantServer {
   static {
     // Initialize delivery drivers
     for (int i = 0; i < MAX_DELIVERY_DRIVERS; i++) {
-      //deliveryDrivers.add(new DeliveryDriver(i + 1));
+      //deliveryDrivers.add(new main.java.models.DeliveryDriver(i + 1));
     }
   }
 
-  public static void main(String[] args) {
+  public void run() {
     try (ServerSocket serverSocket = new ServerSocket(PORT)) {
-      System.out.println("Restaurant Server listening on port " + PORT);
+      System.out.println("main.java.models.Restaurant Server listening on port " + PORT);
 
       while (true) {
         try {
@@ -29,7 +35,7 @@ public class RestaurantServer {
         }
       }
     } catch (IOException e) {
-      System.out.println("Error setting up RestaurantServer: " + e.getMessage());
+      System.out.println("Error setting up main.java.RestaurantServer: " + e.getMessage());
     }
   }
 
@@ -47,7 +53,7 @@ public class RestaurantServer {
               new ObjectInputStream(customerSocket.getInputStream());
           ObjectOutputStream outToCustomer =
               new ObjectOutputStream(customerSocket.getOutputStream())) {
-        System.out.println("Customer connected");
+        System.out.println("main.java.models.Customer connected");
 
         // Handle incoming order
         Message orderMessage = (Message) inFromCustomer.readObject();
@@ -58,7 +64,7 @@ public class RestaurantServer {
 
         if (isAccepted) {
           // Send acceptance to customer
-          Message acceptMessage = new Message("ACCEPT", "Order accepted by the restaurant.");
+          Message acceptMessage = new Message("ACCEPT", "main.java.models.Order accepted by the restaurant.");
           outToCustomer.writeObject(acceptMessage);
           System.out.println("Sent confirmation to customer.");
 
@@ -66,9 +72,9 @@ public class RestaurantServer {
           assignDeliveryDriver(orderMessage);
         } else {
           // Reject the order
-          Message rejectMessage = new Message("REJECT", "Order rejected by the restaurant.");
+          Message rejectMessage = new Message("REJECT", "main.java.models.Order rejected by the restaurant.");
           outToCustomer.writeObject(rejectMessage);
-          System.out.println("Order rejected.");
+          System.out.println("main.java.models.Order rejected.");
         }
 
       } catch (IOException | ClassNotFoundException e) {
@@ -90,7 +96,7 @@ public class RestaurantServer {
       for (DeliveryDriver driver : deliveryDrivers) {
         if (!driver.isBusy()) {
           driver.assignOrder(orderMessage);
-          System.out.println("Order assigned to driver: " + driver.getDriverId());
+          System.out.println("main.java.models.Order assigned to driver: " + driver.getDriverId());
           return;
         }
       }

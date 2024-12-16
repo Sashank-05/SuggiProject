@@ -1,3 +1,5 @@
+package main.java.models;
+
 public class Restaurant {
   private String name;
   private String location;
@@ -19,7 +21,7 @@ public class Restaurant {
 
   @Override
   public String toString() {
-    return "Restaurant{name='" + name + "', location='" + location + "'}";
+    return "main.java.models.Restaurant{name='" + name + "', location='" + location + "'}";
   }
 
 }

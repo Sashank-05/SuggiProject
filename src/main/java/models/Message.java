@@ -1,3 +1,5 @@
+package main.java.models;
+
 import java.io.Serializable;
 
 public class Message implements Serializable {
@@ -19,6 +21,6 @@ public class Message implements Serializable {
 
   @Override
   public String toString() {
-    return "Message[type=" + type + ", content=" + content + "]";
+    return "main.java.models.Message[type=" + type + ", content=" + content + "]";
   }
 }

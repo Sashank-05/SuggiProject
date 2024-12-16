@@ -1,3 +1,5 @@
+package main.java.models;
+
 public class Customer {
   private String name;
   private String address;
@@ -19,6 +21,6 @@ public class Customer {
 
   @Override
   public String toString() {
-    return "Customer{name='" + name + "', address='" + address + "'}";
+    return "main.java.models.Customer{name='" + name + "', address='" + address + "'}";
   }
 }

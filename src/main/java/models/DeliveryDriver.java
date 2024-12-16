@@ -1,3 +1,5 @@
+package main.java.models;
+
 public class DeliveryDriver {
   private final int driverId;
   private boolean isBusy;
@@ -27,7 +29,7 @@ public class DeliveryDriver {
               try {
                 // Assume the order contains the distance in km and simulate the
                 // delivery Get distance from the order (you may need to modify your
-                // Message class to include this)
+                // main.java.models.Message class to include this)
                 int distance =
                     extractDistance(
                         order.getContent()); // Extract the distance from the message content

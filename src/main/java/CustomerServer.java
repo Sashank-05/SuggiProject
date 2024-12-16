@@ -1,3 +1,10 @@
+package main.java;
+
+import main.java.models.Customer;
+import main.java.models.Message;
+import main.java.models.Order;
+import main.java.models.Restaurant;
+
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
@@ -28,7 +35,7 @@ public class CustomerServer extends Thread {
              ObjectInputStream inFromRestaurant =
                      new ObjectInputStream(restaurantSocket.getInputStream())) {
 
-            System.out.println("Customer Server connected to Restaurant on port " + RESTAURANT_PORT);
+            System.out.println("main.java.models.Customer Server connected to main.java.models.Restaurant on port " + RESTAURANT_PORT);
 
             while (true) {
                 System.out.println("Available Restaurants:");
@@ -56,7 +63,7 @@ public class CustomerServer extends Thread {
                 double distance = scanner.nextDouble();
                 scanner.nextLine(); // Consume newline character
 
-                // Create an Order object
+                // Create an main.java.models.Order object
                 Order order =
                         new Order(
                                 (int) (Math.random() * 1000),
@@ -67,18 +74,18 @@ public class CustomerServer extends Thread {
                 // Send the order to the restaurant
                 Message orderMessage = new Message("ORDER", order.toString());
                 outToRestaurant.writeObject(orderMessage);
-                System.out.println("Order placed: " + order);
+                System.out.println("main.java.models.Order placed: " + order);
 
                 // Wait for restaurant to accept or reject the order
                 Message response = (Message) inFromRestaurant.readObject();
                 if ("ACCEPT".equals(response.getType())) {
-                    System.out.println("Restaurant accepted the order.");
+                    System.out.println("main.java.models.Restaurant accepted the order.");
                     // Inform the customer of estimated delivery time
                     double deliveryTime =
                             distance * 5; // Assuming each delivery driver takes 5 seconds per km
                     System.out.println("Estimated delivery time: " + deliveryTime + " seconds.");
                 } else {
-                    System.out.println("Restaurant rejected the order.");
+                    System.out.println("main.java.models.Restaurant rejected the order.");
                 }
 
                 // Ask the customer if they want to place another order

@@ -1,3 +1,5 @@
+package main.java.models;
+
 public class DeliveryAgent {
     private String name;
     private String location;
@@ -31,6 +33,6 @@ public class DeliveryAgent {
 
     @Override
     public String toString() {
-        return "DeliveryAgent [name=" + name + ", location=" + location + ", available=" + isAvailable + "]";
+        return "main.java.models.DeliveryAgent [name=" + name + ", location=" + location + ", available=" + isAvailable + "]";
     }
 }
